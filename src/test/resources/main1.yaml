@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: Main API
+  version: 1.0.0
+paths:
+  /orders:
+    $ref: 'other.yaml#/paths/~1orders'
+  /contract/id:
+    $ref: 'other.yaml#/paths/~1contract~1id'
+  /user:
+    get:
+      responses:
+        '200':
+          description: List all users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
